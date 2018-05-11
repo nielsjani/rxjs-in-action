@@ -1,0 +1,27 @@
+<h1 *ngIf="moreColors && moreColors.length == 0">Still fetching</h1>
+<p *ngIf="colors && colors.length == 0">Colors</p>
+<p *ngIf="users && users.length == 0">Users</p>
+<p *ngIf="moreColors && moreColors.length == 0">More Colors</p>
+
+<h2 *ngIf="colors">
+  Colors
+</h2>
+<p [ngStyle]="{'color': clr.color}" *ngFor="let clr of colors">
+  {{clr.name}}
+</p>
+
+<h2 *ngIf="users">
+  Users
+</h2>
+<p *ngFor="let user of users">
+  {{user}}
+</p>
+
+<h2 *ngIf="moreColors">
+  More Colors
+</h2>
+<p *ngFor="let moreColor of moreColors">
+  {{moreColor}}
+</p>
+
+
