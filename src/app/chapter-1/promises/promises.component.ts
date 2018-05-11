@@ -28,17 +28,17 @@ export class PromisesComponent implements OnInit {
     return this.colors.map( () => this.getUsers());
   }
 
-  private mapUsers(users) {
-    users.data.map(user => user.first_name).forEach(item => this.users.push(item));
+  private mapUsers(usersList) {
+    usersList.forEach(users => users.data.map(user => user.first_name).forEach(item => this.users.push(item)));
     return this.users.map(() => this.getMoreColors());
   }
 
 
-  mapMoreColors(colors) {
-    this.moreColors = this.moreColors.concat(colors.data.map(color => color.name));
+  mapMoreColors(colorsList) {
+    colorsList.forEach(colors => this.moreColors = this.moreColors.concat(colors.data.map(color => color.name)));
   }
 
-  getColors(): Promise<any> {
+  private getColors(): Promise<any> {
     return $.ajax('https://reqres.in/api/unknown?delay=2');
   }
 
