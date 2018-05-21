@@ -1,0 +1,13 @@
+<h1>Ceasar Cipher decoder</h1>
+Text to decode:
+<input [(ngModel)]="toDecode" />
+
+<br/>
+
+Number of characters to shift:
+<input type="number" [(ngModel)]="shiftAmount" />
+
+<br/>
+
+<button (click)="decode()">DECODE</button>
+<p>Decoded to: {{decoded}}</p>
