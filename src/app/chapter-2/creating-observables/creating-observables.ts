@@ -1,6 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
+
+import 'rxjs/add/observable/empty';
+import 'rxjs/add/operator/catch';
+
 
 @Component({
   selector: 'app-creating-observables',
@@ -17,6 +22,8 @@ export class CreatingObservablesComponent implements OnInit {
     this.multiSynchronous();
     this.singleAsync();
     this.multiAsync();
+
+    this.theFifthOne();
   }
 
   /*
@@ -49,5 +56,17 @@ export class CreatingObservablesComponent implements OnInit {
    */
   private multiAsync() {
     const query = document.querySelector("#theDiv");
+  }
+
+  /*
+   Handle this observable. Log its contents to console. In case of an error, log 'is'. When the observable completes, log 'you!'
+   */
+  private theFifthOne() {
+    const fifth$ = Observable.create(observer => {
+      observer.next('a');
+      observer.next('winner');
+      observer.error(('ARGGH'));
+      observer.complete();
+    });
   }
 }

@@ -56,4 +56,27 @@ class SolutionCreatingObservables {
       .map((click: any) => click.toElement.innerText)
       .subscribe(name => console.log(name));
   }
+
+  /*
+   Handle this observable. Log its contents to console. In case of an error, log 'is'. When the observable completes, log 'you!'
+   */
+  private theFifthOne() {
+    const fifth$ = Observable.create(observer => {
+      observer.next('a');
+      observer.next('winner');
+      observer.error(('ARGGH'));
+      observer.complete();
+    });
+
+    fifth$
+      .catch(err => {
+        console.log('is');
+        return Observable.empty();
+      })
+      .subscribe(
+        res => console.log(res),
+        error => console.log('Wont be reached'),
+        () => console.log('you!')
+      );
+  }
 }
