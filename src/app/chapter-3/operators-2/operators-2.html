@@ -1,0 +1,13 @@
+<h1>Hired dwarves</h1>
+<ol>
+  <li [ngStyle]="{'color': dwarf.color}" *ngFor="let dwarf of dwarvesHired">{{dwarf.name}} (aged {{dwarf.age}}), likes the color {{dwarf.color}}</li>
+</ol>
+
+
+<h1>Max haul: {{maxHaul}}</h1>
+
+
+<h1>Haul by type</h1>
+<ul>
+  <li *ngFor="let haul of haulTotaledByType">{{haul.type}}: {{haul.value}}</li>
+</ul>

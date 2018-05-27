@@ -1,0 +1,9 @@
+<h1>Receipt</h1>
+<div *ngFor="let product of productsWithTaxes">
+  <p style="width: 50%"><span>{{product.name}}</span> <span style="float: right">{{product.price}}</span></p>
+</div>
+<p>
+  ===================================================================================================
+</p>
+<p style="width: 50%; float:right">{{productsTotalPrice}}</p>
+<br>
