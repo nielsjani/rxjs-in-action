@@ -9,6 +9,11 @@ import {CreatingObservablesComponent} from "./chapter-2/creating-observables/cre
 import {UnsubscribingComponent} from "./chapter-3/unsubscribing/unsubscribing";
 import {OperatorsComponent} from "./chapter-3/operators/operators";
 import {Operators2Component} from "./chapter-3/operators-2/operators-2";
+import {WeightCalculationComponent} from "./chapter-6/a-weight-calculation/weight-calculation";
+import {CartLoadingComponent} from "./chapter-6/b-cart-loading/cart-loading";
+import {SellingGemsComponent} from "./chapter-6/c-selling-gems/selling-gems";
+import {NighttimeComponent} from "./chapter-6/d-nighttime/nighttime";
+import {NightclubComponent} from "./chapter-6/e-nightclub/nightclub";
 
 const routes = [
   {
@@ -41,6 +46,26 @@ const routes = [
   {
     path: 'chapter-3/operators-2',
     component: Operators2Component
+  },
+  {
+    path: 'chapter-6/weight-calculation',
+    component: WeightCalculationComponent
+  },
+  {
+    path: 'chapter-6/cart-loading',
+    component: CartLoadingComponent
+  },
+  {
+    path: 'chapter-6/selling-gems',
+    component: SellingGemsComponent
+  },
+  {
+    path: 'chapter-6/nighttime',
+    component: NighttimeComponent
+  },
+  {
+    path: 'chapter-6/nightclub',
+    component: NightclubComponent
   },
   {
     path: '**',

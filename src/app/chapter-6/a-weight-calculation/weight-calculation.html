@@ -1,0 +1,8 @@
+Cart weight:
+<input type="number" [(ngModel)]="cartWeight" />
+
+<br/>
+
+<button (click)="calculateWeight()">Calculate number of horses needed to pull cart</button>
+<p *ngIf="totalWeight">You need at least {{horsesNeeded}} horses</p>
+<p *ngIf="totalWeight">(total weight: {{totalWeight}} / 400 (per horse))</p>

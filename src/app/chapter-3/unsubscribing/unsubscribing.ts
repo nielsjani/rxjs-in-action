@@ -20,7 +20,6 @@ export class UnsubscribingComponent implements OnInit {
 
   ngOnInit() {
     this.handleKeyPresses();
-
   }
 
   /*
