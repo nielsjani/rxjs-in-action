@@ -8,9 +8,10 @@ import "rxjs/add/operator/filter";
 import "rxjs/add/operator/reduce";
 import "rxjs/add/operator/startWith";
 import {Observable} from "rxjs/Observable";
-import {AnonymousSubscription, Subscription} from "rxjs/Subscription";
+import {Subscription} from "rxjs/Subscription";
+import 'rxjs/add/observable/of';
 
-class GemSeller implements AnonymousSubscription {
+class GemSeller {
   private disposed = false;
   private value: any;
 
@@ -19,7 +20,13 @@ class GemSeller implements AnonymousSubscription {
   }
 
   getValue() {
-    return this.value.length === 0 ? "ALL GEMS SOLD" : this.value.pop();
+    if (this.disposed) {
+      console.log("Sorry, shop's closed!");
+      return undefined;
+    }
+    const gemToSell = this.value.length === 0 ? "ALL GEMS SOLD" : this.value.pop();
+    console.log(gemToSell);
+    return gemToSell;
   }
 
   unsubscribe() {
@@ -32,23 +39,24 @@ class GemSeller implements AnonymousSubscription {
   selector: 'app-selling-gems',
   templateUrl: './selling-gems.html'
 })
-export class SellingGemsComponent  {
+export class SellingGemsComponent implements OnInit {
   private subscription$: Subscription;
+  gemSeller: GemSeller;
 
-  /*
-  I don't get it :(
-  https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/using.md
-   */
-  sellNextGemOnClick() {
-    const gemSeller = new GemSeller(["DIAMOND", "RUBY", "EMERALD"]);
-    this.subscription$ =  Observable.using(
-      () => gemSeller,
-      (resource: GemSeller) => Observable.interval(1000)
+  ngOnInit() {
+    this.gemSeller = new GemSeller(["DIAMOND", "RUBY", "EMERALD"]);
+    this.subscription$ = Observable.using(
+      () => this.gemSeller,
+      () => Observable.interval(1000)
+      // Gemseller will never be unsubscribed from unless you click the 'Go home' button.
+      // replace the interval by the following statement, and the gemseller will be unsubscriber from immediately
+      // () => Observable.of(1000)
     )
-      .subscribe(value => console.log(gemSeller.getValue()));
+      .subscribe(value => console.log("Subscribe: " + value));
   }
 
   goHome() {
     this.subscription$.unsubscribe();
   }
+
 }
