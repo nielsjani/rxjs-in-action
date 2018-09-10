@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {Chapter2Module} from "./chapter-2/chapter-2.module";
 import {Chapter3Module} from "./chapter-3/chapter-3.module";
 import {Chapter6Module} from "./chapter-6/chapter-6.module";
+import {Chapter7Module} from "./chapter-7/chapter-7.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {Chapter6Module} from "./chapter-6/chapter-6.module";
     Chapter2Module,
     Chapter3Module,
     Chapter6Module,
+    Chapter7Module,
     RouterModule
   ],
   providers: [],

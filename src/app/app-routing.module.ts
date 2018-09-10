@@ -14,6 +14,8 @@ import {CartLoadingComponent} from "./chapter-6/b-cart-loading/cart-loading";
 import {SellingGemsComponent} from "./chapter-6/c-selling-gems/selling-gems";
 import {NighttimeComponent} from "./chapter-6/d-nighttime/nighttime";
 import {NightclubComponent} from "./chapter-6/e-nightclub/nightclub";
+import {PassingGemsComponent} from "./chapter-7/a-passing-gems/passing-gems";
+import {MiningBuddiesComponent} from "./chapter-7/b-mining-buddies/mining-buddies";
 
 const routes = [
   {
@@ -66,6 +68,14 @@ const routes = [
   {
     path: 'chapter-6/nightclub',
     component: NightclubComponent
+  },
+  {
+    path: 'chapter-7/passing-gems',
+    component: PassingGemsComponent
+  },
+  {
+    path: 'chapter-7/mining-buddies',
+    component: MiningBuddiesComponent
   },
   {
     path: '**',
